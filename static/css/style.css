@@ -1,0 +1,14 @@
+.col-md-5 img {
+    width: 100%;
+}
+
+.flashes li {
+    text-decoration: none;
+    color: green;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: solid;
+    text-align: center;
+    background-color: lightgrey;
+}

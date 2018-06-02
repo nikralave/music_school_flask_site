@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}" />
+    <script type="text/javascript" src=""></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{ msg }}</h1>
+    
+    <h2>Shopping List</h2>
+    
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task }}</li>
+        {% endfor %}
+    </ul>
+    
+    <hr>
+    
+    <form method="POST" action="/new_task">
+        <input type="text" name="task_to_do"/>
+        <input type="submit" value="You must remember this...."/>
+    </form>
+    
+</body>
+</html>

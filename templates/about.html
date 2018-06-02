@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+<h2>{{ page_title }}</h2>
+
+
+
+<p>The school ran 2 orchestras, a wind ensemble, a madrigal group, a brass band and a choir for every year in the school as well as the normal day to day teaching up to A-level. This was invaluable experience and was the true inspiration for and beginning
+    of an exciting musical adventure. Ann returned to Northern Ireland after 4 years to take up the post of Head of Music in a grammar school and stayed there until marriage beckoned her to Dublin. She taught music part time in several schools in Dublin
+    until she took time out to have 3 children. Since then, Ann has taught piano privately, been an examiner for The Royal Irish Academy of Music and in 2005 opened Churchtown School of Music. The latter decision was inspired by a family background of
+    business and education – her parents and one sister are in business and her other sister is in a high-level position in the Department of Education in Northern Ireland. CSM opened with 60 students and now numbers 700 plus (ranging from age 3 months
+    to 70+), employing 40 fully-qualified, experienced and inspirational teachers. Having done the school and extra curricular runs with her own 3 children (2 of whom are music graduates and work in the school), Ann understands the necessity of putting
+    the needs of the parent and child first. Ann’s ambition is to have happy students, happy parents and happy teachers. She believes that music is an important part of life, at every stage. You are never too young or too old for music. The musical adventure
+    that began in Reading all those years ago continues!</p>
+
+{% for member in company_data %} 
+{% if loop.index % 2 != 0 %}
+<div class="row featurette">
+    <div class="col-md-7">
+        <h3><a href="/about/{{ member.url }}">{{ member.name }}</a></h3>
+        <p> {{ member.description }}</p>
+    </div>
+    <div class="col-md-5">
+        <img class="featurette-image img-responsive" src="{{ member.image_source }}" alt="Picture of {{ member.name }}">
+    </div>
+</div>
+{% else %}
+<div class="row featurette">
+    <div class="col-md-5">
+        <img class="featurette-image img-responsive" src="{{ member.image_source }}" alt="Picture of {{ member.name }}">
+    </div>
+    <div class="col-md-7">
+        <h3><a href="/about/{{ member.url }}">{{ member.name }}</a></h3>
+        <p>{{ member.description }}</p>
+    </div>
+</div>
+
+{% endif %} {% if loop.index != 13 %}
+<hr class="featurette-divider"> 
+{% endif %} 
+{% endfor %} 
+{% endblock %}
